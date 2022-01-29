@@ -5,9 +5,11 @@ import { TableItem } from '../TableItem';
 
 type Props = {
     list: Item[]
+    setList: React.Dispatch<React.SetStateAction<Item[]>>
 }
 
-export const TableArea = ({ list }: Props) => {
+export const TableArea = ({ list, setList }: Props) => {
+    console.log(list)
     return (
         <C.Table>
             <thead>
@@ -21,7 +23,7 @@ export const TableArea = ({ list }: Props) => {
             </thead>
             <tbody>
                 {list.map((item, index) => (
-                    <TableItem key={index} item={item} />
+                    <TableItem key={index} item={item} list={list} setList={setList} />
 
                 ))}
             </tbody>

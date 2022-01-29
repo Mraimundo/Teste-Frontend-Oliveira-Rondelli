@@ -3,26 +3,27 @@ import * as C from './styles'
 import { Item } from '../../types/item'
 import { formatDate } from '../../helpers/dateFilter';
 import { categories } from '../../data/categories';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 
 
 
 type Props = {
     item: Item
+    setList: React.Dispatch<React.SetStateAction<Item[]>>
+    list: Item[];
 }
 
-export const TableItem = ({ item }: Props) => {
-    const [tansactions, setTansactions] = useState<Item[]>([]);
-
+export const TableItem = ({ item, setList, list }: Props) => {
     const removeTransactions = useCallback((transactionId: string) => {
-        const newTransaction = [...tansactions];
+        console.log(transactionId)
+        const newTransaction = [...list];
         const removedTransactionIndex = newTransaction.findIndex(transation => transation.id === transactionId);
         if (removedTransactionIndex > -1) {
             newTransaction.splice(removedTransactionIndex, 1);
         }
-        setTansactions(newTransaction);
+        setList(newTransaction);
 
-    }, []);
+    }, [setList, list]);
 
     return (
         <C.TableLine>
