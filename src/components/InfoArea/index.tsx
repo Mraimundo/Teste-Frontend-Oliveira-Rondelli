@@ -35,7 +35,6 @@ export const InfoArea = ({ currentMonth, onMonthChange, income, expense }: Props
                     {formatCurrentMonth(currentMonth)}
                 </C.MonthTitle>
                 <C.MonthArrow onClick={handleNextMonth}>➡</C.MonthArrow>
-
             </C.MonthArea>
             <C.ResumeArea>
                 <ResumeItem title={'ENTRADA'} value={income} color={'#64B83C'} />

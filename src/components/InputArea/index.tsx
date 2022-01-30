@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as C from './styles';
 import { Item } from '../../types/item';
 
@@ -8,12 +10,21 @@ type Props = {
   onAdd: (item: Item) => void;
 };
 
+toast.configure();
+
 export const InputArea = ({ onAdd }: Props) => {
   const [dateField, setDateField] = useState('');
   const [listFieldId, setListFieldId] = useState('');
   const [categoryField, setCategoryField] = useState('');
   const [titleField, setTitleField] = useState('');
   const [valueField, setValueField] = useState(0);
+
+  const notify = () => {
+    toast.error('Por favor preencha todos campos!', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 4000
+    })
+  }
 
   let categoryKeys: string[] = Object.keys(categories);
 
@@ -34,7 +45,8 @@ export const InputArea = ({ onAdd }: Props) => {
     }
 
     if (errors.length > 0) {
-      alert(errors.join("\n"));
+      notify()
+      // alert(errors.join("\n"));
     } else {
       onAdd({
         id: (listFieldId),
@@ -82,7 +94,7 @@ export const InputArea = ({ onAdd }: Props) => {
       </C.InputLabel>
       <C.InputLabel>
         <C.InputTitle>&nbsp;</C.InputTitle>
-        <C.Button onClick={handleAddEvent}>Adicionar</C.Button>
+        <C.Button type='button' onClick={handleAddEvent}>Adicionar</C.Button>
       </C.InputLabel>
     </C.Container>
   );

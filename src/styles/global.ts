@@ -8,6 +8,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
+     /* a cada 1rem será considerado 10px */
+    font-size: 62.5%;
+}
+
+  html {
+    @media only screen and (min-width: 1200px) {
+      font-size: 93.75% 
+    }
+    
     @media (max-width: 1080px) {
       font-size: 93.75% // 15px
     }
@@ -17,7 +26,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+
   body {
+    /* font-size: 1.6rem; */
     background-color: #f0f2f5;
     -webkit-font-smoothing: antialiased;
   }

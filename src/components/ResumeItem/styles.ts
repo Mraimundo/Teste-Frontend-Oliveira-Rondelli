@@ -8,10 +8,10 @@ export const Title = styled.div`
     text-align: center;
     font-weight: bold;
     color: white;
-    margin-bottom: 5px;
+    margin-bottom: 0.313rem;
 `;
 
-export const Info = styled.div<{color?: string}>`
+export const Info = styled.div<{ color?: string }>`
     text-align: center;
     font-weight: bold;
     color: ${props => props.color ?? 'black'};

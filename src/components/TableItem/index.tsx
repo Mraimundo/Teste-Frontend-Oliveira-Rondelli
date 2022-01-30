@@ -15,7 +15,6 @@ type Props = {
 
 export const TableItem = ({ item, setList, list }: Props) => {
     const removeTransactions = useCallback((transactionId: string) => {
-        console.log(transactionId)
         const newTransaction = [...list];
         const removedTransactionIndex = newTransaction.findIndex(transation => transation.id === transactionId);
         if (removedTransactionIndex > -1) {
@@ -42,7 +41,7 @@ export const TableItem = ({ item, setList, list }: Props) => {
             </C.TableColumn>
 
             <C.TableColumn>
-                <C.Delete color={categories[item.category].expense ? 'red' : 'limegreen'}>
+                <C.Delete color={categories[item.category].expense ? '#FF4839' : 'limegreen'}>
                     <button onClick={() => removeTransactions(item.id)} type='button'>
                         <GoTrashcan />
                     </button>

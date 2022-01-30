@@ -9,25 +9,31 @@ type Props = {
 }
 
 export const TableArea = ({ list, setList }: Props) => {
-    console.log(list)
     return (
-        <C.Table>
-            <thead>
-                <tr>
-                    <C.TableHeadColumn width={150}>Data</C.TableHeadColumn>
-                    <C.TableHeadColumn width={180}>Categoria</C.TableHeadColumn>
-                    <C.TableHeadColumn>Título</C.TableHeadColumn>
-                    <C.TableHeadColumn width={100}>Valor</C.TableHeadColumn>
-                    <C.TableHeadColumn width={100}>Excluir</C.TableHeadColumn>
-                </tr>
-            </thead>
-            <tbody>
-                {list.map((item, index) => (
-                    <TableItem key={index} item={item} list={list} setList={setList} />
+        <C.Container>
+            <C.Table>
+                <thead>
+                    <tr>
+                        {/* <C.TableHeadColumn width={150}>Data</C.TableHeadColumn>
+                        <C.TableHeadColumn width={180}>Categoria</C.TableHeadColumn>
+                        <C.TableHeadColumn>Título</C.TableHeadColumn>
+                        <C.TableHeadColumn width={100}>Valor</C.TableHeadColumn>
+                        <C.TableHeadColumn width={100}>Excluir</C.TableHeadColumn> */}
 
-                ))}
-            </tbody>
-        </C.Table>
+                        <C.TableHeadColumn>Data</C.TableHeadColumn>
+                        <C.TableHeadColumn >Categoria</C.TableHeadColumn>
+                        <C.TableHeadColumn>Título</C.TableHeadColumn>
+                        <C.TableHeadColumn >Valor</C.TableHeadColumn>
+                        <C.TableHeadColumn >Excluir</C.TableHeadColumn>
+                    </tr>
+                </thead>
+                <tbody>
+                    {list.map((item, index) => (
+                        <TableItem key={index} item={item} list={list} setList={setList} />
+                    ))}
+                </tbody>
+            </C.Table>
+        </C.Container>
     );
 
 }
